@@ -31,3 +31,8 @@
 ### Run container with exposed port
 
 `docker run --rm --name mydatabase -v ./data:/opt/code/source/data -p 8080:8080 mydatabasetest:latest`
+
+
+### Run docker-compose file
+
+`docker-compose up -d`
