@@ -1,0 +1,8 @@
+services:
+    mydatabasetest:
+        image: mydatabasetest:latest
+        container_name: mydatabase
+        volumes:
+            - ./data:/opt/code/source/data
+        ports:
+            - 8080:8080
