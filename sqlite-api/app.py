@@ -5,8 +5,6 @@ from flask_swagger_ui import get_swaggerui_blueprint
 import sqlite3
 from flask.views import MethodView
 
-from movie import Movie
-
 # Init flask app
 app = Flask(__name__)
 # Init swagger

@@ -1,0 +1,33 @@
+version: "3.2"
+
+networks:
+  my-net:
+
+volumes:
+  grafanadata:
+    name: grafanadata
+
+services:
+  mydatabase:
+    image: mydatabasetest:latest
+    container_name: mydatabase
+    volumes:
+      - ./data_db:/opt/code/source/data
+    networks:
+      - my-net
+    ports:
+      - 8080:8080
+      
+  grafana:
+    image: grafana/grafana:10.2.1
+    container_name: grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=password
+      - GF_INSTALL_PLUGINS=marcusolsson-json-datasource,nikosc-percenttrend-panel
+    volumes:
+     - grafanadata:/var/lib/grafana
+    networks:
+      - my-net
+    ports:
+      - "3000:3000"
+    
